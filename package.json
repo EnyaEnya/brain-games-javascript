@@ -1,8 +1,7 @@
 {
   "name": "enya_braingames",
-  "version": "0.0.1",
-  "description": "",
-  "main": "dist/bin/brain-games.js",
+  "version": "0.0.3",
+  "description": "Training project brain-games on Hexlet.",
   "files": [
     "dist"
   ],
@@ -23,7 +22,7 @@
   "author": "enya",
   "license": "ISC",
   "bin": {
-   "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js"
   },
   "bugs": {
     "url": "https://github.com/EnyaEnya/project-lvl1-s392/issues"
@@ -33,6 +32,7 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
     "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.1.6"
+    "@babel/preset-env": "^7.1.6",
+    "readline-sync": "^1.4.9"
   }
 }
