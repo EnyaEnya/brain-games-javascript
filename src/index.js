@@ -67,7 +67,6 @@ export const brainEven = () => {
   engine('Answer "yes" if number even otherwise answer "no".\n',
     () => {
       const question = getRandomNumber(1, 100);
-      // const enterAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
       const enterAnswer = askQuestion(question);
       const correctAnswer = (isEven(question) ? 'yes' : 'no');
       return checkFunction(enterAnswer, correctAnswer);
@@ -82,7 +81,6 @@ export const brainCalc = () => {
       const operator = getRandomOperation();
       const correctAnswer = calculate(operator, num1, num2);
       const enterAnswer = askQuestion(`${num1} ${operator} ${num2}`);
-      // const enterAnswer = readlineSync.question(`Question: ${num1} ${operator} ${num2} \nYour answer: `);
       return checkFunction(parseInt(enterAnswer, 10), correctAnswer);
     });
 };
