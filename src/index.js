@@ -1,28 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const getRandomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
-
-const getRandomOperation = () => {
-  switch (getRandomNumber(1, 3)) {
-    case 1:
-      return '+';
-    case 2:
-      return '-';
-    default: return '*';
-  }
-};
-
-const calculate = (operator, num1, num2) => {
-  switch (operator) {
-    case '+':
-      return num1 + num2;
-    case '-':
-      return num1 - num2;
-    default: return num1 * num2;
-  }
-};
-
-const isEven = number => number % 2 === 0;
+export const getRandomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
 
 export const greeting = (str) => {
   console.log('Welcome to the Brain Games!');
@@ -52,7 +30,7 @@ export const engine = (greetingStr, game) => {
   }
 };
 
-const checkFunction = (enterAnswer, correctAnswer) => {
+export const checkFunction = (enterAnswer, correctAnswer) => {
   const success = enterAnswer === correctAnswer;
   if (!success) {
     console.log(`'${enterAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
@@ -60,27 +38,4 @@ const checkFunction = (enterAnswer, correctAnswer) => {
   return success;
 };
 
-const askQuestion = question => readlineSync.question(`Question: ${question}\nYour answer: `);
-
-
-export const brainEven = () => {
-  engine('Answer "yes" if number even otherwise answer "no".\n',
-    () => {
-      const question = getRandomNumber(1, 100);
-      const enterAnswer = askQuestion(question);
-      const correctAnswer = (isEven(question) ? 'yes' : 'no');
-      return checkFunction(enterAnswer, correctAnswer);
-    });
-};
-
-export const brainCalc = () => {
-  engine('What is the result of the expression?.\n',
-    () => {
-      const num1 = getRandomNumber(1, 100);
-      const num2 = getRandomNumber(1, 100);
-      const operator = getRandomOperation();
-      const correctAnswer = calculate(operator, num1, num2);
-      const enterAnswer = askQuestion(`${num1} ${operator} ${num2}`);
-      return checkFunction(parseInt(enterAnswer, 10), correctAnswer);
-    });
-};
+export const askQuestion = question => readlineSync.question(`Question: ${question}\nYour answer: `);
