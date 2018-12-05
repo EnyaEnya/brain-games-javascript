@@ -2,21 +2,23 @@ const readlineSync = require('readline-sync');
 
 const getRandomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
 
-export const greeting = () => {
+export const greeting = (str) => {
   console.log('Welcome to the Brain Games!');
+  if (str !== undefined) {
+    console.log(str);
+  }
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello ${userName}!`);
   return userName;
 };
 
 export const brainEven = () => {
-  const userName = greeting();
+  const userName = greeting('Answer "yes" if number even otherwise answer "no".\n');
   let currentAttempt = 0;
-  const numOfAttempt = 10;
+  const numOfAttempts = 3;
   const min = 1; // minimum of range
   const max = 100; // maximum of range
-  console.log('Answer "yes" if number even otherwise answer "no".\n');
-  while (currentAttempt < numOfAttempt) {
+  while (currentAttempt < numOfAttempts) {
     const num = getRandomNumber(min, max);
     const isEven = (num % 2 === 0);
     const enterNum = readlineSync.question(`${num}\n`);
