@@ -1,6 +1,6 @@
 {
   "name": "enya_braingames",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Training project brain-games on Hexlet.",
   "files": [
     "dist"
@@ -23,7 +23,8 @@
   "license": "ISC",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js"
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js"
   },
   "bugs": {
     "url": "https://github.com/EnyaEnya/project-lvl1-s392/issues"
