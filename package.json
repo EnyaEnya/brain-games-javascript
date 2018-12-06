@@ -1,6 +1,6 @@
 {
   "name": "enya_braingames",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Training project brain-games on Hexlet.",
   "files": [
     "dist"
