@@ -1,8 +1,6 @@
 import {
-  engine, getRandomNumber, askQuestion, checkFunction,
+  engine, getRandomNumber, askQuestion, checkFunction, isEven,
 } from '..';
-
-const isEven = number => number % 2 === 0;
 
 const conditionOfGame = 'Answer "yes" if number even otherwise answer "no".\n';
 

@@ -2,6 +2,35 @@ import readlineSync from 'readline-sync';
 
 export const getRandomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
 
+export const getRandomOperation = () => {
+  switch (getRandomNumber(1, 3)) {
+    case 1:
+      return '+';
+    case 2:
+      return '-';
+    default: return '*';
+  }
+};
+
+export const calculate = (operator, num1, num2) => {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    default: return num1 * num2;
+  }
+};
+
+export const isEven = number => number % 2 === 0;
+
+export const gcd = (num1, num2) => {
+  if (num2 === 0) {
+    return num1;
+  }
+  return gcd(num2, num1 % num2);
+};
+
 export const greeting = (str) => {
   console.log('\nWelcome to the Brain Games!');
   if (str !== undefined) {
