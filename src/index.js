@@ -3,12 +3,12 @@ import readlineSync from 'readline-sync';
 export const getRandomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
 
 export const greeting = (str) => {
-  console.log('Welcome to the Brain Games!');
+  console.log('\nWelcome to the Brain Games!');
   if (str !== undefined) {
     console.log(str);
   }
   const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello ${userName}!`);
+  console.log(`Hello, ${userName}!\n`);
   return userName;
 };
 

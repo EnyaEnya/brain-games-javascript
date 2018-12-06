@@ -1,13 +1,17 @@
-import * as common from '..';
+import {
+  engine, getRandomNumber, askQuestion, checkFunction,
+} from '..';
 
 const isEven = number => number % 2 === 0;
 
+const conditionOfGame = 'Answer "yes" if number even otherwise answer "no".\n';
+
 export default () => {
-  common.engine('Answer "yes" if number even otherwise answer "no".\n',
+  engine(conditionOfGame,
     () => {
-      const question = common.getRandomNumber(1, 100);
-      const enterAnswer = common.askQuestion(question);
+      const question = getRandomNumber(1, 100);
+      const answer = askQuestion(question);
       const correctAnswer = (isEven(question) ? 'yes' : 'no');
-      return common.checkFunction(enterAnswer, correctAnswer);
+      return checkFunction(answer, correctAnswer);
     });
 };
