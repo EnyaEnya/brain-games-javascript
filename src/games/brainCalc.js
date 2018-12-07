@@ -1,19 +1,17 @@
 import {
-  engine, getRandomNumber, getRandomOperation, calculate, threeArgApply, safetyParseInt,
+  engine, getRandomNumber, cons,
 } from '..';
+import { getRandomOperation, calculate } from './utils';
 
 const conditionOfGame = 'What is the result of the expression?.\n';
 
-const questionParamsBuilder = () => threeArgApply(
-  getRandomNumber(1, 100),
-  getRandomOperation(),
-  getRandomNumber(1, 100),
-);
+const generateGameParams = () => {
+  const num1 = getRandomNumber(1, 100);
+  const num2 = getRandomNumber(1, 100);
+  const operator = getRandomOperation();
+  return cons(`${num1} ${operator} ${num2}`, calculate(num1, operator, num2));
+};
 
 export default () => {
-  engine(conditionOfGame,
-    questionParamsBuilder,
-    calculate,
-    (num1, operator, num2) => `${num1} ${operator} ${num2}`,
-    x => safetyParseInt(x));
+  engine(conditionOfGame, generateGameParams);
 };
