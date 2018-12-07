@@ -14,7 +14,7 @@ export const getRandomOperation = () => {
   }
 };
 
-export const isNan = (x) => {
+export const safetyParseInt = (x) => {
   const answer = parseInt(x, 10);
   if (isNaN(answer)) {
     return x;

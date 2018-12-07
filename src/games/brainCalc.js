@@ -1,5 +1,5 @@
 import {
-  engine, getRandomNumber, getRandomOperation, calculate, threeArgApply, isNan,
+  engine, getRandomNumber, getRandomOperation, calculate, threeArgApply, safetyParseInt,
 } from '..';
 
 const conditionOfGame = 'What is the result of the expression?.\n';
@@ -15,5 +15,5 @@ export default () => {
     questionParamsBuilder,
     calculate,
     (num1, operator, num2) => `${num1} ${operator} ${num2}`,
-    x => isNan(x));
+    x => safetyParseInt(x));
 };

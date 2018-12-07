@@ -1,5 +1,5 @@
 import {
-  engine, getRandomNumber, gcd, twoArgApply, isNan,
+  engine, getRandomNumber, gcd, twoArgApply, safetyParseInt,
 } from '..';
 
 const conditionOfGame = 'Find the greatest common divisor of given numbers.\n';
@@ -14,5 +14,5 @@ export default () => {
     questionParamsBuilder,
     gcd,
     (num1, num2) => `${num1}, ${num2}`,
-    x => isNan(x));
+    x => safetyParseInt(x));
 };
