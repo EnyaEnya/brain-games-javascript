@@ -22,10 +22,6 @@ const checkFunction = (enterAnswer, correctAnswer) => {
 
 const askQuestion = question => readlineSync.question(`Question: ${question}\nYour answer: `);
 
-export const apply = arg => fn => fn(arg);
-export const twoArgApply = (arg1, arg2) => fn => fn(arg1, arg2);
-export const threeArgApply = (arg1, arg2, arg3) => fn => fn(arg1, arg2, arg3);
-
 export const cons = (x, y) => f => f(x, y);
 const car = z => z(x => x);
 const cdr = z => z((x, y) => y);
