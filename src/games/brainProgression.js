@@ -1,5 +1,5 @@
 import {
-  engine, getRandomNumber,
+  engine, getRandomNumber, cons,
 } from '..';
 import { getRandomOperation, calculate } from './utils';
 
@@ -9,16 +9,21 @@ const brainProgression = () => {
   let num = getRandomNumber(2, 10);
   const operation = getRandomOperation();
   const operationNumber = getRandomNumber(2, 10);
+  let answer = 0;
   let result = String(num);
   for (let i = 0; i < 10; i += 1) {
-    num = calculate(num, operation, operationNumber);
-    result = `${result} ${num}`;
+    if (i === 5) {
+      num = calculate(num, operation, operationNumber);
+      result += ' .. ';
+      answer = num;
+    } else {
+      num = calculate(num, operation, operationNumber);
+      result += ` ${num} `;
+    }
   }
-};
-
-const generateGameParams = () => {
+  return cons(`${result} `, answer);
 };
 
 export default () => {
-  engine(conditionOfGame, generateGameParams);
+  engine(conditionOfGame, brainProgression);
 };
