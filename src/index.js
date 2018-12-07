@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+
 import readlineSync from 'readline-sync';
 
 export const getRandomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
@@ -12,7 +14,15 @@ export const getRandomOperation = () => {
   }
 };
 
-export const calculate = (operator, num1, num2) => {
+export const isNan = (x) => {
+  const answer = parseInt(x, 10);
+  if (isNaN(answer)) {
+    return x;
+  }
+  return answer;
+};
+
+export const calculate = (num1, operator, num2) => {
   switch (operator) {
     case '+':
       return num1 + num2;
@@ -41,12 +51,28 @@ export const greeting = (str) => {
   return userName;
 };
 
-export const engine = (greetingStr, game) => {
-  const userName = greeting(greetingStr);
+export const checkFunction = (enterAnswer, correctAnswer) => {
+  const success = enterAnswer === correctAnswer;
+  if (!success) {
+    console.log(`'${enterAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+  }
+  return success;
+};
+
+export const askQuestion = question => readlineSync.question(`Question: ${question}\nYour answer: `);
+
+export const apply = arg => fn => fn(arg);
+export const twoArgApply = (arg1, arg2) => fn => fn(arg1, arg2);
+export const threeArgApply = (arg1, arg2, arg3) => fn => fn(arg1, arg2, arg3);
+
+export const engine = (conditionOfGame, questionParamsBuilder, questionResolver, questionBuilder = x => `${x}`, answerVerifier = x => x) => {
+  const userName = greeting(conditionOfGame);
   const numOfAttempts = 3;
   let success = true;
   for (let i = 0; i < numOfAttempts; i += 1) {
-    success = game();
+    const paramsApplier = questionParamsBuilder();
+    const answer = askQuestion(paramsApplier(questionBuilder));
+    success = checkFunction(answerVerifier(answer), paramsApplier(questionResolver));
     if (success) {
       console.log('Correct!');
     } else {
@@ -58,13 +84,3 @@ export const engine = (greetingStr, game) => {
     console.log(`Congratulations, ${userName}!`);
   }
 };
-
-export const checkFunction = (enterAnswer, correctAnswer) => {
-  const success = enterAnswer === correctAnswer;
-  if (!success) {
-    console.log(`'${enterAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  }
-  return success;
-};
-
-export const askQuestion = question => readlineSync.question(`Question: ${question}\nYour answer: `);

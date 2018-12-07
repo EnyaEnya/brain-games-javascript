@@ -1,16 +1,18 @@
 import {
-  engine, getRandomNumber, askQuestion, checkFunction, gcd,
+  engine, getRandomNumber, gcd, twoArgApply, isNan,
 } from '..';
 
 const conditionOfGame = 'Find the greatest common divisor of given numbers.\n';
 
+const questionParamsBuilder = () => twoArgApply(
+  getRandomNumber(1, 100),
+  getRandomNumber(1, 100),
+);
+
 export default () => {
   engine(conditionOfGame,
-    () => {
-      const num1 = getRandomNumber(1, 100);
-      const num2 = getRandomNumber(1, 100);
-      const answer = askQuestion(`${num1}, ${num2}`);
-      const correctAnswer = gcd(num1, num2);
-      return checkFunction(parseInt(answer, 10), correctAnswer);
-    });
+    questionParamsBuilder,
+    gcd,
+    (num1, num2) => `${num1}, ${num2}`,
+    x => isNan(x));
 };
