@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import { engine } from '..';
-import { getRandomNumber } from '../utils';
+import getRandomNumber from '../utils';
 
 const conditionOfGame = 'What number is missing in the progression?';
 
@@ -8,25 +8,30 @@ export const calculateProg = (num1, operator, num2) => (operator === '+' ? num1 
 
 export const getRandomOperationProg = () => (getRandomNumber(1, 2) === 1 ? '+' : '-');
 
-const brainProgression = () => {
-  let num = getRandomNumber(2, 10);
-  const operation = getRandomOperationProg();
-  const operationNum = getRandomNumber(2, 10);
+const brainProgression = (num, operation, operationNum) => {
+  let numProg = num;
   let answer = 0;
-  let result = String(num);
+  let result = String(numProg);
   for (let i = 0; i < 10; i += 1) {
     if (i === 5) {
-      num = calculateProg(num, operation, operationNum);
+      numProg = calculateProg(numProg, operation, operationNum);
       result += ' .. ';
-      answer = num;
+      answer = numProg;
     } else {
-      num = calculateProg(num, operation, operationNum);
-      result += ` ${num} `;
+      numProg = calculateProg(numProg, operation, operationNum);
+      result += ` ${numProg} `;
     }
   }
   return cons(`${result} `, answer);
 };
 
+const generateGameParams = () => {
+  const num = getRandomNumber(2, 10);
+  const operationNum = getRandomNumber(2, 10);
+  const operation = getRandomOperationProg();
+  return brainProgression(num, operation, operationNum);
+};
+
 export default () => {
-  engine(conditionOfGame, brainProgression);
+  engine(conditionOfGame, generateGameParams);
 };
