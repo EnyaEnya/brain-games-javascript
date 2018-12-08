@@ -1,7 +1,7 @@
 import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
-export const greeting = (str) => {
+const greeting = (str) => {
   console.log('\nWelcome to the Brain Games!');
   if (str !== undefined) {
     console.log(`${str}\n`);
@@ -17,7 +17,7 @@ const askQuestion = question => readlineSync.question(`Question: ${question}\nYo
 
 const numOfAttempts = 3;
 
-export const engine = (conditionOfGame, generateGameParams) => {
+export default (conditionOfGame, generateGameParams) => {
   const userName = greeting(conditionOfGame);
   for (let i = 0; i < numOfAttempts; i += 1) {
     const params = generateGameParams();

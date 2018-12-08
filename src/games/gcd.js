@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import { engine } from '..';
+import engine from '..';
 import getRandomNumber from '../utils';
 
 export const gcd = (num1, num2) => {

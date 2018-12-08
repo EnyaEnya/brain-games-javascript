@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import { engine } from '..';
+import engine from '..';
 import getRandomNumber from '../utils';
 
 const conditionOfGame = 'What is the result of the expression?.';
