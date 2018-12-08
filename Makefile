@@ -13,6 +13,9 @@ startgcd:
 startprog:
 	npx babel-node -- src/bin/brain-progression.js
 
+startprime:
+	npx babel-node -- src/bin/brain-prime.js
+
 publish:
 	npm publish
 

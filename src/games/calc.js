@@ -4,13 +4,13 @@ import getRandomNumber from '../utils';
 
 const conditionOfGame = 'What is the result of the expression?.';
 
-export const calculate = (num1, operator, num2) => {
+export const calculate = (questionNum1, operator, questionNum2) => {
   switch (operator) {
     case '+':
-      return num1 + num2;
+      return questionNum1 + questionNum2;
     case '-':
-      return num1 - num2;
-    default: return num1 * num2;
+      return questionNum1 - questionNum2;
+    default: return questionNum1 * questionNum2;
   }
 };
 
@@ -25,10 +25,12 @@ export const getRandomOperation = () => {
 };
 
 const generateGameParams = () => {
-  const num1 = getRandomNumber(1, 100);
-  const num2 = getRandomNumber(1, 100);
+  const questionNum1 = getRandomNumber(1, 100);
+  const questionNum2 = getRandomNumber(1, 100);
   const operator = getRandomOperation();
-  return cons(`${num1} ${operator} ${num2}`, calculate(num1, operator, num2));
+  const questionStr = `${questionNum1} ${operator} ${questionNum2}`;
+  const rightAnswer = calculate(questionNum1, operator, questionNum2);
+  return cons(questionStr, rightAnswer);
 };
 
 export default () => {

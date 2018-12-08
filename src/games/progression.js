@@ -9,19 +9,19 @@ const getNextElement = (currentProgElement, stepOfProg) => currentProgElement + 
 const brainProgression = (lengthOfProg, firstProgElement, stepOfProg) => {
   let currentProgElement = firstProgElement;
   const hiddenElement = 5;
-  let answer = 0;
-  let resultStr = String(firstProgElement);
+  let rightAnswer = 0;
+  let questionStr = String(firstProgElement);
   for (let i = 0; i < lengthOfProg; i += 1) {
     if (i === hiddenElement) {
       currentProgElement = getNextElement(currentProgElement, stepOfProg);
-      resultStr += ' .. ';
-      answer = currentProgElement;
+      questionStr += ' .. ';
+      rightAnswer = currentProgElement;
     } else {
       currentProgElement = getNextElement(currentProgElement, stepOfProg);
-      resultStr += ` ${currentProgElement} `;
+      questionStr += ` ${currentProgElement} `;
     }
   }
-  return cons(`${resultStr} `, answer);
+  return cons(`${questionStr} `, rightAnswer);
 };
 
 const generateGameParams = () => {
