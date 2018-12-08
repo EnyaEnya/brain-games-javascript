@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import { engine } from '..';
-import { getRandomNumber } from '../utils';
+import getRandomNumber from '../utils';
 
 export const gcd = (num1, num2) => {
   if (num2 === 0) {
