@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/EnyaEnya/project-lvl1-s392#readme",
   "dependencies": {
+    "hexlet-pairs": "^1.0.8",
     "readline-sync": "^1.4.9"
   },
   "devDependencies": {

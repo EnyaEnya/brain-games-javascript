@@ -1,47 +1,36 @@
+import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
-
-export const getRandomNumber = (min, max) => (Math.floor(Math.random() * (max - min + 1)) + min);
 
 export const greeting = (str) => {
   console.log('\nWelcome to the Brain Games!');
   if (str !== undefined) {
-    console.log(str);
+    console.log(`${str}\n`);
   }
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);
   return userName;
 };
 
-const checkFunction = (enterAnswer, correctAnswer) => {
-  const success = enterAnswer === String(correctAnswer);
-  if (!success) {
-    console.log(`'${enterAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  }
-  return success;
-};
+const checkFunction = (answer, correctAnswer) => answer === String(correctAnswer);
 
 const askQuestion = question => readlineSync.question(`Question: ${question}\nYour answer: `);
 
-export const cons = (x, y) => f => f(x, y);
-const car = z => z(x => x);
-const cdr = z => z((x, y) => y);
+const numOfAttempts = 3;
 
 export const engine = (conditionOfGame, generateGameParams) => {
   const userName = greeting(conditionOfGame);
-  const numOfAttempts = 3;
-  let success = true;
   for (let i = 0; i < numOfAttempts; i += 1) {
     const params = generateGameParams();
+    const correctAnswer = cdr(params);
     const answer = askQuestion(car(params));
-    success = checkFunction(answer, cdr(params));
+    const success = checkFunction(answer, correctAnswer);
     if (success) {
       console.log('Correct!');
     } else {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
-      break;
+      return;
     }
   }
-  if (success) {
-    console.log(`Congratulations, ${userName}!`);
-  }
+  console.log(`Congratulations, ${userName}!`);
 };
