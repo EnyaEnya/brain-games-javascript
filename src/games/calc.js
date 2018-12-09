@@ -30,7 +30,7 @@ const generateGameParams = () => {
   const operator = getRandomOperation();
   const questionStr = `${questionNum1} ${operator} ${questionNum2}`;
   const rightAnswer = calculate(questionNum1, operator, questionNum2);
-  return cons(questionStr, rightAnswer);
+  return cons(questionStr, `${rightAnswer}`);
 };
 
 export default () => {

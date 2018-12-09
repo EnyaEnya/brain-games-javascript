@@ -16,7 +16,7 @@ const generateGameParams = () => {
   const questionNum2 = getRandomNumber(1, 100);
   const questionStr = `${questionNum1}, ${questionNum2}`;
   const rightAnswer = gcd(questionNum1, questionNum2);
-  return cons(questionStr, rightAnswer);
+  return cons(questionStr, `${rightAnswer}`);
 };
 
 export default () => {

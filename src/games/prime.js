@@ -16,12 +16,12 @@ const isPrime = (questionNum) => {
   return true;
 };
 
-const rightAnswer = num => (isPrime(num) ? 'yes' : 'no');
+const returnRightAnswer = num => (isPrime(num) ? 'yes' : 'no');
 
 const generateGameParams = () => {
   const questionNum = getRandomNumber(1, 1000);
   const questionStr = `${questionNum}`;
-  return cons(questionStr, rightAnswer(questionNum));
+  return cons(questionStr, returnRightAnswer(questionNum));
 };
 
 export default () => {
