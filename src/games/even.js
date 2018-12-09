@@ -5,7 +5,7 @@ import getRandomNumber from '../utils';
 const conditionOfGame = 'Answer "yes" if number even otherwise answer "no".';
 
 const isEven = questionNum => questionNum % 2 === 0;
-const returnRightAnswer = questionNum => (isEven(questionNum) === true ? 'yes' : 'no');
+const returnRightAnswer = questionNum => (isEven(questionNum) ? 'yes' : 'no');
 
 const generateGameParams = () => {
   const questionNum = getRandomNumber(1, 100);

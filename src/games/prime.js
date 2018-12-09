@@ -8,17 +8,15 @@ const isPrime = (questionNum) => {
   if (questionNum < 2) {
     return false;
   }
-  let i = 2;
-  while (i <= questionNum / 2) {
+  for (let i = 2; i <= questionNum / 2; i += 1) {
     if (questionNum % i === 0) {
       return false;
     }
-    i += 1;
   }
   return true;
 };
 
-const rightAnswer = num => (isPrime(num) === true ? 'yes' : 'no');
+const rightAnswer = num => (isPrime(num) ? 'yes' : 'no');
 
 const generateGameParams = () => {
   const questionNum = getRandomNumber(1, 1000);
