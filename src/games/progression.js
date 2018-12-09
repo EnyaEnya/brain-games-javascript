@@ -6,7 +6,7 @@ const conditionOfGame = 'What number is missing in the progression?';
 
 const brainProgression = (length, step) => {
   const firstElement = getRandomNumber(2, 10);
-  const hiddenElementPosition = getRandomNumber(0, 9);
+  const hiddenElementPosition = getRandomNumber(0, length);
   const rightAnswer = firstElement + step * hiddenElementPosition;
   let questionStr = '';
   for (let i = 0; i < length; i += 1) {
@@ -17,7 +17,7 @@ const brainProgression = (length, step) => {
       questionStr += ` ${currentElement} `;
     }
   }
-  return cons(`${questionStr} `, `${rightAnswer}`);
+  return cons(`${questionStr.trim()}`, `${rightAnswer}`);
 };
 
 const generateGameParams = () => {
