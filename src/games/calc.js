@@ -4,7 +4,7 @@ import getRandomNumber from '../utils';
 
 const conditionOfGame = 'What is the result of the expression?.';
 
-export const calculate = (questionNum1, operator, questionNum2) => {
+const calculate = (questionNum1, operator, questionNum2) => {
   switch (operator) {
     case '+':
       return questionNum1 + questionNum2;
@@ -14,7 +14,7 @@ export const calculate = (questionNum1, operator, questionNum2) => {
   }
 };
 
-export const getRandomOperation = () => {
+const getRandomOperation = () => {
   switch (getRandomNumber(1, 3)) {
     case 1:
       return '+';

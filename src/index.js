@@ -13,8 +13,6 @@ const greeting = (str) => {
 
 const checkFunction = (answer, correctAnswer) => answer === String(correctAnswer);
 
-const askQuestion = question => readlineSync.question(`Question: ${question}\nYour answer: `);
-
 const numOfAttempts = 3;
 
 export default (conditionOfGame, generateGameParams) => {
@@ -22,7 +20,7 @@ export default (conditionOfGame, generateGameParams) => {
   for (let i = 0; i < numOfAttempts; i += 1) {
     const params = generateGameParams();
     const correctAnswer = cdr(params);
-    const answer = askQuestion(car(params));
+    const answer = readlineSync.question(`Question: ${car(params)}\nYour answer: `);
     const success = checkFunction(answer, correctAnswer);
     if (success) {
       console.log('Correct!');

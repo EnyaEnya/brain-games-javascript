@@ -4,31 +4,31 @@ import getRandomNumber from '../utils';
 
 const conditionOfGame = 'What number is missing in the progression?';
 
-const getNextElement = (currentProgElement, stepOfProg) => currentProgElement + stepOfProg;
+const getNextElement = (currentElement, step) => currentElement + step;
 
-const brainProgression = (lengthOfProg, firstProgElement, stepOfProg) => {
-  let currentProgElement = firstProgElement;
+const brainProgression = (length, firstElement, step) => {
+  let currentElement = firstElement;
   const hiddenElement = 5;
   let rightAnswer = 0;
-  let questionStr = String(firstProgElement);
-  for (let i = 0; i < lengthOfProg; i += 1) {
+  let questionStr = String(firstElement);
+  for (let i = 0; i < length; i += 1) {
     if (i === hiddenElement) {
-      currentProgElement = getNextElement(currentProgElement, stepOfProg);
+      currentElement = getNextElement(currentElement, step);
       questionStr += ' .. ';
-      rightAnswer = currentProgElement;
+      rightAnswer = currentElement;
     } else {
-      currentProgElement = getNextElement(currentProgElement, stepOfProg);
-      questionStr += ` ${currentProgElement} `;
+      currentElement = getNextElement(currentElement, step);
+      questionStr += ` ${currentElement} `;
     }
   }
   return cons(`${questionStr} `, rightAnswer);
 };
 
 const generateGameParams = () => {
-  const lengthOfProg = 10;
-  const firstProgElement = getRandomNumber(2, 10);
-  const stepOfProg = getRandomNumber(-10, 10);
-  return brainProgression(lengthOfProg, firstProgElement, stepOfProg);
+  const length = 10;
+  const firstElement = getRandomNumber(2, 10);
+  const step = getRandomNumber(-10, 10);
+  return brainProgression(length, firstElement, step);
 };
 
 export default () => {
