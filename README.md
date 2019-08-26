@@ -23,4 +23,4 @@ There are several console games on javaScript:
 4. Prime - need to answer "yes" if given number is prime. Otherwise answer "no".
 5. Progression - need to find which number is missing in the progression.
 
-This project was realised on Hexlet-courses.
+This project was realized on Hexlet-courses.
