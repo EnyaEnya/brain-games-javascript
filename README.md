@@ -13,3 +13,14 @@
 [![asciicast](https://asciinema.org/a/I7wYX6lhJyqf9bF99helzXPh5.svg)](https://asciinema.org/a/I7wYX6lhJyqf9bF99helzXPh5)
 
 [![asciicast](https://asciinema.org/a/O7dxZokQXwbK115aWO0yes2g1.svg)](https://asciinema.org/a/O7dxZokQXwbK115aWO0yes2g1)
+
+
+There are several console games on javaScript:
+
+1. Calculation - need to calculate result of the expression.
+2. Even - need to answer "yes" if number even otherwise answer "no".
+3. Gcd - need to find the greatest common divisor of given numbers.
+4. Prime - need to answer "yes" if given number is prime. Otherwise answer "no".
+5. Progression - need to find which number is missing in the progression.
+
+This project was realised on Hexlet-courses.
